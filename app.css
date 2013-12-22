@@ -5,7 +5,14 @@ html, body {
 	height: 100%;
 }
 
+.black { color:#000; }
+.red { color:#b00; }
+.green { color:#0b0; }
+.blue { color:#00b; }
+.color.on { background:#fff; }
+
 body {
-	background: rgb(64, 64, 64);
+	background: #fafafa;
 	overflow: hidden;
+    font-family: helvetica neue, arial, sans-serif;
 }
