@@ -11,6 +11,16 @@ html, body {
 .blue { color:#00b; }
 .color.on { background:#fff; }
 
+.rotate .play { display:none; }
+.rotate .pause { display:inline-block; }
+.rotate.on .play { display:inline-block; }
+.rotate.on .pause { display:none; }
+
+.audio .sounds { display:none; }
+.audio .mute { display:inline-block; }
+.audio.on .sounds { display:inline-block; }
+.audio.on .mute { display:none; }
+
 body {
 	background: #fafafa;
 	overflow: hidden;

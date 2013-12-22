@@ -52,6 +52,8 @@ $(document).ready(function() {
             rotate123();
         } else if (id == 'shapes') {
             rotateShapes();
+        } else {
+            setBGContent('');
         }
         scheduleNextRotation();
     }
@@ -102,9 +104,9 @@ $(document).ready(function() {
         resizeCanvas();
         $(window).on('resize', resizeCanvas);
         $(window).on('orientationchange', resizeCanvas);
-        $('.controls .abc').click(function(){start('abc');});
-        $('.controls .123').click(function(){start('123');});
-        $('.controls .shapes').click(function(){start('shapes');});
+        $('#options label').click(function(e){
+            start($('input', this).get(0).id);
+        });
         $('.controls .rotate').click(function(){
             if ($(this).hasClass('on')) {
                 $(this).removeClass('on');
@@ -114,18 +116,16 @@ $(document).ready(function() {
                 start();
             }
         });
-        $('.controls .color').click(function(e){
-            $('.controls .color').removeClass('on');
-            $this = $(this);
+        $('#colors label').click(function(e){
             var map = {
                 'black': '#000000',
                 'red': '#b00000',
                 'blue': '#0000b0',
                 'green': '#00b000',
             };
-            color = map[$this.attr('class').replace('color ', '')];
-            $this.addClass('on');
+            color = map[$(this).data('color')];
         });
+        $('.btn-group').button()
     })();
 
 	canvas.ontouchstart = function(e) {
