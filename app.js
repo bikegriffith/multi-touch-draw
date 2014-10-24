@@ -24,6 +24,7 @@ $(document).ready(function() {
 	};
 
     var resizeCanvas = function() {
+        // Resize <canvas> element.  Must stash and redraw image
         var oldCanvas = canvas.toDataURL("image/png");
         var img = new Image();
         img.src = oldCanvas;
@@ -33,6 +34,13 @@ $(document).ready(function() {
             context.drawImage(img, 0, 0);
         };
 		offset = $(canvas).offset();
+
+        // Optimize element size for varying viewports
+        if (window.innerHeight >= 480 && window.innerWidth >= 480) {
+            $('.btn').addClass('btn-lg');
+        } else {
+            $('.btn').removeClass('btn-lg');
+        }
     };
 
     var clear = function () {

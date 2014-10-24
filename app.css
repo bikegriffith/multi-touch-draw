@@ -5,11 +5,14 @@ html, body {
 	height: 100%;
 }
 
-.black { color:#000; }
-.red { color:#b00; }
-.green { color:#0b0; }
-.blue { color:#00b; }
-.color.on { background:#fff; }
+.circle { display:inline-block;width: 20px; height:20px; border-radius:10px; }
+.btn-lg .circle { width: 30px; height:30px; border-radius:15px; }
+.active .circle { width:30px; height:30px; border-radius:15px; }
+.active.btn-lg .circle { width:40px; height:40px; border-radius:15px; }
+.black .circle { background-color:#000; }
+.red .circle { background-color:#b00; }
+.green .circle { background-color:#0b0; }
+.blue .circle { background-color:#00b; }
 
 .rotate .play { display:none; }
 .rotate .pause { display:inline-block; }

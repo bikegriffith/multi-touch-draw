@@ -1,48 +1,52 @@
 <!DOCTYPE HTML>
 <html manifest="app.manifest">
-	<head>
-		<title>Draw 2 Learn</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-		<link rel="stylesheet" href="app.css" />
-		<link rel="apple-touch-icon" href="assets/screenshot.png" />
-		<script type="text/javascript" src="lib/jquery.min.js"></script>`
-        <script src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="lib/hide-address-bar.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-		<meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-touch-fullscreen" content="yes" />
-	</head>
-	<body>
-		<canvas id="canvas" style="position:absolute;z-index:20"></canvas>
-        <div style="position:fixed;z-index:10;bottom:20px;left:20px;">
-            <h3 style="text-align:left;font-size:16pt;font-weight:normal;color:#ccc;">Draw 2 Learn<br><span style="font-size:10pt">&copy 2013 Techscapades, Inc.</span></h3>
+<head>
+    <title>Draw 2 Learn</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="apple-touch-icon" href="assets/screenshot.png" />
+    <script type="text/javascript" src="lib/jquery.min.js"></script>`
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/hide-address-bar.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+</head>
+<body>
+    <canvas id="canvas" style="position:absolute;z-index:20"></canvas>
+    <div style="position:fixed;z-index:10;bottom:20px;left:20px;">
+        <h3 style="text-align:left;font-size:16pt;font-weight:normal;color:#ccc;">
+            Draw 2 Learn<br>
+            <span style="font-size:10pt">&copy 2013 Techscapades, Inc.</span>
+        </h3>
+    </div>
+    <div class="bgcontent" style="position:absolute; margin:auto;  top: 0; left: 0; bottom: 0; right: 0;z-index:10;text-align:center;"></div>
+    <div class="controls" style="position:fixed; top:10px; right:15px;
+        margin-left:15px;
+        z-index:30; background:#eee; border:1px solid #999; padding:10px;
+        box-shadow:0 0 3px #999; opacity:0.95">
+        <div id="colors" class="btn-group" data-toggle="buttons">
+            <label class="btn black active" data-color="black"><input type="radio" name="colors"><span class="circle"></span></label>
+            <label class="btn red" data-color="red"><input type="radio" name="colors"><span class="circle"></span></label>
+            <label class="btn green" data-color="green"><input type="radio" name="colors"><span class="circle"></span></label>
+            <label class="btn blue" data-color="blue"><input type="radio" name="colors"><span class="circle"></span></label>
         </div>
-        <div class="bgcontent" style="position:absolute; margin:auto;  top: 0; left: 0; bottom: 0; right: 0;z-index:10;text-align:center;"></div>
-        <div class="controls" style="position:fixed; top:10px; right:15px;
-            z-index:30; background:#eee; border:1px solid #999; padding:10px;
-            box-shadow:0 0 3px #999; opacity:0.95">
-            <div id="colors" class="btn-group" data-toggle="buttons">
-                <label class="btn btn-lg black active" data-color="black"><input type="radio" name="colors">&#9673;</label>
-                <label class="btn btn-lg red" data-color="red"><input type="radio" name="colors">&#9673;</label>
-                <label class="btn btn-lg green" data-color="green"><input type="radio" name="colors">&#9673;</label>
-                <label class="btn btn-lg blue" data-color="blue"><input type="radio" name="colors">&#9673;</label>
-            </div>
-            <div id="options" class="btn-group" data-toggle="buttons">
-                <label class="btn btn-lg btn-primary active"><input type="radio" name="options" id="draw"><i class="glyphicon glyphicon-pencil"></i></label>
-                <label class="btn btn-lg btn-primary"><input type="radio" name="options" id="abc">ABC</label>
-                <label class="btn btn-lg btn-primary"><input type="radio" name="options" id="123">123</label>
-                <label class="btn btn-lg btn-primary"><input type="radio" name="options" id="shapes">Shapes</label>
-            </div>
-            <button class="btn btn-lg rotate on">
-                <span class="play"><i class="glyphicon glyphicon-play"></i></span>
-                <span class="pause"><i class="glyphicon glyphicon-pause"></i></span>
-            </button>
-            <button class="btn btn-lg audio on">
-                <span class="sounds"><i class="glyphicon glyphicon-volume-up"></i></span>
-                <span class="mute"><i class="glyphicon glyphicon-volume-off"></i></span>
-            </button>
+        <div id="options" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active"><input type="radio" name="options" id="draw"><i class="glyphicon glyphicon-pencil"></i></label>
+            <label class="btn btn-primary"><input type="radio" name="options" id="abc">ABC</label>
+            <label class="btn btn-primary"><input type="radio" name="options" id="123">123</label>
+            <label class="btn btn-primary"><input type="radio" name="options" id="shapes">Shapes</label>
         </div>
-	</body>
+        <button class="btn rotate on">
+            <span class="play"><i class="glyphicon glyphicon-play"></i></span>
+            <span class="pause"><i class="glyphicon glyphicon-pause"></i></span>
+        </button>
+        <button class="btn audio on">
+            <span class="sounds"><i class="glyphicon glyphicon-volume-up"></i></span>
+            <span class="mute"><i class="glyphicon glyphicon-volume-off"></i></span>
+        </button>
+    </div>
+</body>
 </html>
